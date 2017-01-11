@@ -3,7 +3,6 @@ Given(/^the following dishes are in shopping cart$/) do |table|
     dish = Dish.find_by(name: hash[:name])
     cart = FactoryGirl.create(:shopping_cart)
     cart.add(dish, dish.price)
-    binding.pry
   end
 end
 
