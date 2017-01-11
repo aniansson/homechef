@@ -7,6 +7,11 @@ Feature: As a Buying User,
   I need to see payment confirmation through a payment solution
 
   Background:
+    Given the following dishes exists
+      |    name   |                        description                              |  price  | ready_time | portions |
+      | meatballs |    homecooked with love, including mashed potatoes and sauce    |    49   |   18:00    |    10    |
+      |   taco    |    really spicy authentic mexican tacos                         |    59   |   16:00    |    10    |
+
     Given the following dishes are in shopping cart
       |    name   |
       | meatballs |
