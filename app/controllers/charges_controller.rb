@@ -1,10 +1,15 @@
 class ChargesController < ApplicationController
   def new
+    @totalamount = 0
+
+    ShoppingCart.find_by(id: 1).shopping_cart_items.each do |shoppingcartitem|
+      @totalamount += shoppingcartitem.item.price
+    end
+    @totalamount = (@totalamount / 9.11).round(2)
 end
 
 def create
-  # Amount in cents
-  @amount = 500
+  @amount = (@totalamount*100)
 
   customer = Stripe::Customer.create(
     email: params[:stripeEmail],
@@ -19,7 +24,7 @@ def create
   )
 
 rescue Stripe::CardError => e
-  flash[:error] = e.message
+  flash[:error] = e.messageg
   redirect_to new_charge_path
 end
 end
