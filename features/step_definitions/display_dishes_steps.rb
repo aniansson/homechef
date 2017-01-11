@@ -12,5 +12,8 @@ When(/^I am on the "([^"]*)" page$/) do |page|
   when "Meatballs"
     id = Dish.find_by(name: "meatballs").id
     visit "/dishes/#{id}"
+
+  when "Checkout"
+    visit root_path
   end
 end

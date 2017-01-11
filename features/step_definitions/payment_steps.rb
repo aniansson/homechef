@@ -6,8 +6,8 @@ Given(/^the following dishes are in shopping cart$/) do |table|
   end
 end
 
-When(/^I click the "([^"]*)" stripe button$/) do |arg1|
-  pending # Write code here that turns the phrase above into concrete actions
+When(/^I click the "([^"]*)" stripe button$/) do |button|
+  click_link_or_button button
 end
 
 When(/^I fill in my card details on the stripe form$/) do

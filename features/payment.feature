@@ -18,7 +18,8 @@ Feature: As a Buying User,
       |   taco    |
 
   Scenario: Buying User pays for the dishes in her basket
-    When I click the "Pay with Card" stripe button
+    When I am on the "Checkout" page
+    And I click the "Pay with Card" stripe button
     And I fill in my card details on the stripe form
     And I submit the stripe form
     Then my order should be registered in the system
