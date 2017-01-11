@@ -27,6 +27,7 @@ group :development, :test do
   gem 'cucumber-rails', require: false
   gem 'database_cleaner'
   gem 'coveralls', require: false
+  gem 'acts_as_shopping_cart', '~> 0.4.1'
 end
 
 group :development do
