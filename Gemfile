@@ -31,6 +31,7 @@ group :development, :test do
   gem 'acts_as_shopping_cart', '~> 0.4.1'
   gem 'poltergeist'
   gem 'phantomjs', require: 'phantomjs/poltergeist'
+  gem 'dotenv-rails'
 end
 
 group :development do
