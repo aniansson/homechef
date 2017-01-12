@@ -10,7 +10,8 @@ Feature: As a Buying User,
 
   Scenario: Buying User pays for the dishes in her basket
     When I am on the "Checkout" page
-    And I click the "Pay with Card" stripe button
+    And I click the stripe button
     And I fill in my card details on the stripe form
+    And Show me an image of the page
     And I submit the stripe form
     Then my order should be registered in the system

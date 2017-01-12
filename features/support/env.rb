@@ -1,5 +1,5 @@
 require 'capybara/poltergeist'
-
+require 'capybara-screenshot/cucumber'
 require 'coveralls'
 Coveralls.wear_merged!('rails')
 
