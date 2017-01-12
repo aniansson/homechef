@@ -1,3 +1,5 @@
+require 'capybara/poltergeist'
+
 require 'coveralls'
 Coveralls.wear_merged!('rails')
 
@@ -12,3 +14,5 @@ ActionController::Base.allow_rescue = false
   end
 
 Cucumber::Rails::Database.javascript_strategy = :truncation
+
+Capybara.javascript_driver = :poltergeist

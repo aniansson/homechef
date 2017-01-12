@@ -29,6 +29,8 @@ group :development, :test do
   gem 'database_cleaner'
   gem 'coveralls', require: false
   gem 'acts_as_shopping_cart', '~> 0.4.1'
+  gem 'poltergeist'
+  gem 'phantomjs', require: 'phantomjs/poltergeist'
 end
 
 group :development do
