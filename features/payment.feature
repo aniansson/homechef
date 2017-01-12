@@ -14,4 +14,3 @@ Feature: As a Buying User,
     And I fill in my card details on the stripe form
     And I submit the stripe form
     Then I should see "Thanks, you paid $5.49!" on the order confirmation
-    And my order should be registered in the system
