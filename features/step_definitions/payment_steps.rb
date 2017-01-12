@@ -23,7 +23,11 @@ When(/^I fill in my card details on the stripe form$/) do
 end
 
 When(/^I submit the stripe form$/) do
-  pending # Write code here that turns the phrase above into concrete actions
+  cart = :shopping_cart
+    within_frame @stripe_iframe do
+      # click_button "Pay SEK#{@totalamount}"
+    end
+    sleep(1)
 end
 
 Then(/^my order should be registered in the system$/) do
