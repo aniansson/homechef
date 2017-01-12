@@ -3,6 +3,7 @@ class ChargesController < ApplicationController
 end
 
 def create
+  @totalamount = 50
   @amount = (@totalamount*100)
 
   customer = Stripe::Customer.create(

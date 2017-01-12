@@ -12,6 +12,6 @@ Feature: As a Buying User,
     When I am on the "Checkout" page
     And I click the stripe button
     And I fill in my card details on the stripe form
-    And Show me an image of the page
     And I submit the stripe form
-    Then my order should be registered in the system
+    Then I should see "Thanks, you paid $5.49!" on the order confirmation
+    And my order should be registered in the system

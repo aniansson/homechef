@@ -3,7 +3,7 @@ When(/^I click the stripe button$/) do
 end
 
 When(/^I fill in my card details on the stripe form$/) do
-  sleep(0.1) until page.evaluate_script('$.active') == 0
+  sleep(1)
   @stripe_iframe = all('iframe[name=stripe_checkout_app]').last
   within_frame @stripe_iframe do
     fill_in 'Email', with: 'random@morerandom.com'
@@ -15,7 +15,7 @@ end
 
 When(/^I submit the stripe form$/) do
     within_frame @stripe_iframe do
-      click_button "Betala SEK5,49"
+      page.execute_script("$('button').click()")
     end
     sleep(1)
 end
@@ -27,4 +27,9 @@ end
 And(/^Show me an image of the page$/) do
   sleep(0.1) until page.evaluate_script('$.active') == 0
   Capybara::Screenshot.screenshot_and_open_image
+end
+
+Then(/^I should see "([^"]*)" on the order confirmation$/) do |content|
+  sleep(4)
+  expect(page).to have_content content
 end
