@@ -19,6 +19,7 @@ gem 'turbolinks', '~> 5'
 gem 'jbuilder', '~> 2.5'
 gem 'stripe'
 gem 'bootstrap-sass', '~> 3.3.6'
+gem 'acts_as_shopping_cart', '~> 0.4.1'
 
 group :development, :test do
   gem 'pry'
@@ -36,6 +37,7 @@ group :development, :test do
   gem 'capybara-screenshot'
   gem 'stripe-ruby-mock', '~> 2.3.1', require: 'stripe_mock'
   gem 'webmock'
+  gem 'launchy'
 end
 
 group :development do

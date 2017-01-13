@@ -1,11 +1,15 @@
 <ul>
   <% @dishes.each do |dish| %>
-    <li>
-      <%= dish.name.humanize %><br/>
-      <%= dish.description.humanize %>
-      Price: <%= dish.price %>kr
-      Ready for pick-up at <%= dish.ready_time.strftime('%H:%M') %>
-      <%= dish.portions %> portions left
-    </li>
+      <li>
+        <%= dish.name.humanize %><br/>
+        <%= dish.description.humanize %>
+        Price: <%= dish.price %>kr
+        Ready for pick-up at <%= dish.ready_time.strftime('%H:%M') %>
+        <%= dish.portions %> portions left
+        <%= form_tag add_to_order_path, id: "dish-#{dish.id}" do %>
+            <%= hidden_field_tag :dish_id, dish.id %>
+            <%= submit_tag "Add dish" %>
+        <% end %>
+      </li>
   <% end %>
 </ul>
