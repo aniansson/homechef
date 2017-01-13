@@ -34,6 +34,8 @@ group :development, :test do
   gem 'phantomjs', require: 'phantomjs/poltergeist'
   gem 'dotenv-rails'
   gem 'capybara-screenshot'
+  gem 'stripe-ruby-mock', '~> 2.3.1', require: 'stripe_mock'
+  gem 'webmock'
 end
 
 group :development do

@@ -1,4 +1,4 @@
-@javascript
+@javascript @stripe
 
 Feature: As a Buying User,
   In order to get my food delivered,
