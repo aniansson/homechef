@@ -21,6 +21,7 @@ gem 'stripe'
 gem 'bootstrap-sass', '~> 3.3.6'
 gem 'acts_as_shopping_cart', '~> 0.4.1'
 gem 'devise'
+gem 'geokit-rails'
 
 group :development, :test do
   gem 'pry'
