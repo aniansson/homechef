@@ -6,9 +6,10 @@ Feature: As a buying User,
 
   Background:
     Given the following dishes exists
-      | name      | description                                               | price | ready_time | portions |
-      | meatballs | homecooked with love, including mashed potatoes and sauce | 49    | 18:00      | 10       |
-      | taco      | really spicy authentic mexican tacos                      | 59    | 16:00      | 10       |
+      | name      | description                                               | price | ready_time | portions |    lat        |     lng       |
+      | meatballs | homecooked with love, including mashed potatoes and sauce | 4    | 18:00      | 10       | 35.5332005    |  -79.179632   |
+      | taco      | really spicy authentic mexican tacos                      | 5    | 16:00      | 10       | 35.5332005    |  -79.179632   |
+    And that there is a session with data lng and lat
     And that there is a user logged in with an email of "email@random.com"
     And I am on the "landing" page
 
@@ -18,10 +19,10 @@ Feature: As a buying User,
     And there should be "2" items on the last order
     And I click "Checkout" button
     Then I should see "Taco"
-    And I should see "Price: $59"
+    And I should see "Price: $5"
     And I should see "Ready for pick-up at 16:00"
     And I should see "Meatballs"
-    And I should see "Price: $49"
+    And I should see "Price: $4"
     And I should see "Ready for pick-up at 18:00"
     And I should see the stripe button
     When I click the "Remove" button for "taco"
@@ -37,7 +38,7 @@ Feature: As a buying User,
     And there should be "1" items on the last order
     And I click "Checkout" button
     Then I should see "Meatballs"
-    And I should see "Price: $49"
+    And I should see "Price: $4"
     And I should see "Ready for pick-up at 18:00"
     And I should see the stripe button
     When I click the "Remove" button for "meatballs"

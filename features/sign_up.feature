@@ -3,6 +3,9 @@ Feature: Sign Up
   In order to buy and sell tasty food,
   I need to be able to get system access by creating an account
 
+  Background:
+    Given that there is a session with data lng and lat
+
   Scenario: Successfully Signed Up
     When I am on the "landing" page
     And I click the "Sign up" link

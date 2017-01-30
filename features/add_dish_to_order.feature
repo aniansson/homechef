@@ -7,10 +7,11 @@ Feature: Add dish to order
 
   Background:
     Given the following dishes exists
-      | name      | description                                               | price | ready_time | portions |
-      | meatballs | homecooked with love, including mashed potatoes and sauce | 4     | 18:00      | 10       |
-      | taco      | really spicy authentic mexican tacos                      | 5     | 16:00      | 10       |
-    And that there is a user logged in with an email of "email@random.com"
+      | name      | description                                               | price | ready_time | portions |    lat        |     lng       |
+      | meatballs | homecooked with love, including mashed potatoes and sauce |   4   | 18:00      | 10       | 35.5332005    |  -79.179632   |
+      | taco      | really spicy authentic mexican tacos                      |   5   | 16:00      | 10       | 35.5332005    |  -79.179632   |
+    And that there is a session with data lng and lat
+    And that there is a user logged in with an email of "emaile@random.com"
     And I am on the "landing" page
 
   Scenario: Successfully add dish to order

@@ -3,6 +3,9 @@ Feature: Main landing page
   In order to get an overview over the service
   I need to see a main landing page
 
+  Background:
+    Given that there is a session with data lng and lat
+
   Scenario: Visitor visits main page
     When I am on the "landing" page
     Then I should see "Welcome to HomeChef"

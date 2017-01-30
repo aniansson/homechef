@@ -5,6 +5,7 @@ Feature: Login
 
   Background:
     Given that there is a user with email: "kristoffer.user@homechef.com"
+    And that there is a session with data lng and lat
 
   Scenario: A user logs in
     When I am on the "landing" page
