@@ -2,7 +2,6 @@ class RegistrationsController < Devise::RegistrationsController
    geocode_ip_address
    def create
     build_resource(sign_up_params)
-binding.pry
     resource.save
     yield resource if block_given?
     if resource.persisted?
