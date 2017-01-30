@@ -4,4 +4,8 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
   has_many :orders
+
+  acts_as_mappable lat_column_name: :lat,
+                   lng_column_name: :lng,
+                   default_units: :kms
 end
