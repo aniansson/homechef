@@ -63,19 +63,12 @@ $ travis encrypt $(heroku auth:token) —add deploy.api_key
 * [Twitter Bootstrap](http://getbootstrap.com) — Front-end framework
 * [Stripe](https://github.com/stripe/stripe-ruby) - Payment solution
 
-## Contributing
-
-Please read [CONTRIBUTING.md](https://gist.github.com/PurpleBooth/b24679402957c63ec426) for details on our code of conduct, and the process for submitting pull requests to us.
-
-## Versioning
-
-We use [SemVer](http://semver.org/) for versioning. For the versions available, see the [tags on this repository](https://github.com/your/project/tags).
-
 ## Authors
-
-* **Billie Thompson** - *Initial work* - [PurpleBooth](https://github.com/PurpleBooth)
-
-See also the list of [contributors](https://github.com/your/project/contributors) who participated in this project.
+* **Craft Academy** - [CraftAcademy](https://github.com/CraftAcademy)
+* **Ebba Aniansson** - [aniansson](https://github.com/aniansson)
+* **Kristoffer Karlsson** - [kriizjones](https://github.com/kriizjones)
+* **Philip Zudemberg** - [Philippoes](https://github.com/Philippoes)
+* **Rodrigo Muños** - [rmzse](https://github.com/rmzse)
 
 ## License
 
@@ -84,3 +77,4 @@ This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md
 ## Acknowledgments
 
 * https://github.com/crowdint/acts_as_shopping_cart
+* https://github.com/geokit/geokit-rails
