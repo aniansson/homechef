@@ -19,4 +19,3 @@ end
 And(/^that there is a session with data lng and lat$/) do
   page.set_rack_session(geo_location: {"lat"=>35.5332005, "lng"=>-79.179632})
 end
-
