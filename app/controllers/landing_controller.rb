@@ -1,4 +1,5 @@
 class LandingController < ApplicationController
+  include Geokit::Geocoders
   geocode_ip_address
 
   def index
@@ -10,5 +11,11 @@ class LandingController < ApplicationController
       lng = session[:geo_location].lng
     end
     @dishes = Dish.within(4, origin: [lat,lng])
+  end
+
+  def address_search
+    location = GoogleGeocoder.geocode(params[:address])
+    @dishes = Dish.within(10, origin: location)
+    render 'landing/index'
   end
 end
