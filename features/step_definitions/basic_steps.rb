@@ -17,10 +17,10 @@ And(/^that there is a user logged in with an email of "([^"]*)"$/) do |email|
 end
 
 Given(/^that there is a session with lat and lng near "([^"]*)"$/) do |place|
-case place
-when 'Chalmers'
-  page.set_rack_session(geo_location: {"lat"=>11.97, "lng"=>57.71})
-when 'somewhere in America'
-  page.set_rack_session(geo_location: {"lat"=>35.5332005, "lng"=>-79.179632})
-end
+  case place
+    when 'Chalmers'
+      page.set_rack_session(geo_location: {"lat" => 11.97, "lng" => 57.71})
+    when 'somewhere in America'
+      page.set_rack_session(geo_location: {"lat" => 35.5332005, "lng" => -79.179632})
+  end
 end
