@@ -1,4 +1,5 @@
 class OrdersController < ApplicationController
+  include GeokitHelper
   before_action :authenticate_user!
 
   def add_to_order
@@ -6,20 +7,8 @@ class OrdersController < ApplicationController
     dish = Dish.find(params[:dish_id])
     @order.add(dish, dish.price)
     flash[:notice] = "Successfully added to order"
-    # redirect_back(fallback_location: root_path)
-    if session[:geo_location].is_a?(Hash)
-      lat = session[:geo_location]['lat']
-      lng = session[:geo_location]['lng']
-    elsif session[:geo_location].is_a?(Hash)
-      lat = session[:geo_location]['ll'].split(',')[0].to_f
-      lng = session[:geo_location]['ll'].split(',')[1].to_f
-    else
-      lat = session[:geo_location].lat
-      lng = session[:geo_location].lng
-    end
-    @dishes = Dish.within(10, origin: [lat,lng])
-    # binding.pry
-    render 'landing/index'
+    @dishes = Dish.within(4, origin: get_geolocation)
+    redirect_back(fallback_location: root_path)
   end
 
   private
