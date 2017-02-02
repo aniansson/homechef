@@ -6,7 +6,7 @@
         Price: $<%= dish.price %><br/>
         Ready for pick-up at <%= dish.ready_time.strftime('%H:%M') %><br/>
         <%= dish.portions %> portions left
-        <%= form_tag add_to_order_path, id: "dish-#{dish.id}", method: :post do %>
+        <%= form_tag add_to_order_path, id: "dish-#{dish.id}" do %>
             <%= hidden_field_tag :dish_id, dish.id %>
             <%= submit_tag "Add dish", class: "btn btn-primary btn-sm" %>
         <% end %>
