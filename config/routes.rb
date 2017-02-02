@@ -6,5 +6,6 @@ Rails.application.routes.draw do
   resources :charges, only: [:create]
   post :add_to_order, controller: :orders, action: :add_to_order
   post :remove_from_order, controller: :checkout, action: :delete
-  post '/', controller: :landing, action: :address_search, as: :search_by_address
+  post :search_by_address, controller: :landing, action: :address_search
+  # the add_to_order function and the search_by_address function are winding up both in the search_by_address function - obviously we need to fix that behavior. Don't know how.
 end

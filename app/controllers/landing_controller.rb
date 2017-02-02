@@ -10,11 +10,16 @@ class LandingController < ApplicationController
       lat = session[:geo_location].lat
       lng = session[:geo_location].lng
     end
-    @dishes = Dish.within(4, origin: [lat,lng])
+    @dishes = Dish.within(10, origin: [lat, lng])
+    binding.pry
+
   end
 
   def address_search
     location = GoogleGeocoder.geocode(params[:address])
+    session[:geo_location]['lng'] = location.lng
+    session[:geo_location]['lat'] = location.lat
+    binding.pry
     @dishes = Dish.within(10, origin: location)
     render 'landing/index'
   end

@@ -6,7 +6,17 @@ class OrdersController < ApplicationController
     dish = Dish.find(params[:dish_id])
     @order.add(dish, dish.price)
     flash[:notice] = "Successfully added to order"
-    redirect_back(fallback_location: root_path)
+    # redirect_back(fallback_location: root_path)
+    # if session[:geo_location].is_a?(Hash)
+    #   lat = session[:geo_location]['lat']
+    #   lng = session[:geo_location]['lng']
+    # else
+    #   lat = session[:geo_location].lat
+    #   lng = session[:geo_location].lng
+    # end
+    # @dishes = Dish.within(10, origin: [lat,lng])
+    binding.pry
+    render 'landing/index'
   end
 
   private

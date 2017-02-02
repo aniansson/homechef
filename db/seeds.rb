@@ -6,6 +6,9 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-
+Dish.destroy_all
+User.destroy_all
 user = FactoryGirl.create(:user)
-dish = FactoryGirl.create(:dish)
+10.times do
+  FactoryGirl.create(:dish)
+end

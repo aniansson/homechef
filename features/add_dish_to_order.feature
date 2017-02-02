@@ -10,7 +10,7 @@ Feature: Add dish to order
       | name      | description                                               | price | ready_time | portions |    lat        |     lng       |
       | meatballs | homecooked with love, including mashed potatoes and sauce |   4   | 18:00      | 10       | 35.5332005    |  -79.179632   |
       | taco      | really spicy authentic mexican tacos                      |   5   | 16:00      | 10       | 35.5332005    |  -79.179632   |
-    And that there is a session with data lng and lat
+    And that there is a session with lat and lng near "somewhere in America"
     And that there is a user logged in with an email of "emaile@random.com"
     And I am on the "landing" page
 
@@ -36,4 +36,3 @@ Feature: Add dish to order
     And I go to the "landing" page
     Then I should see "9 portions left" for "taco"
     And I should see "9 portions left" for "meatballs"
-
