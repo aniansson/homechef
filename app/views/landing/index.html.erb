@@ -3,8 +3,8 @@
 <h1>Welcome to HomeChef</h1>
 <label>enter your location:</label>
 <%= form_tag(search_by_address_path) do %>
-<%= text_field_tag 'address' %>
-<%= submit_tag 'Search'%>
+    <%= text_field_tag 'address' %>
+    <%= submit_tag 'Search' %>
 <% end %>
 <div id="general_random_dishes" style="width:300px;height:300px;border:1px dotted #ccc;padding:10px 10px 10px 10px;margin-top:40px;">
   <%= render partial: '/dishes/index' %>
