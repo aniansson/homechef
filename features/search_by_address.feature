@@ -7,7 +7,7 @@ Feature: As a visitor,
     | name      | description                                               | price | ready_time | portions |    lat        |     lng       |
     | meatballs | homecooked with love, including mashed potatoes and sauce | 49    | 18:00      | 10       | 57.699225     |   11.969135   |
     | taco      | really spicy authentic mexican tacos                      | 59    | 16:00      | 10       | 58.166040     |   13.547820   |
-    And that there is a session with data lng and lat
+    And that there is a session with lat and lng near "Chalmers"
     And I am on the "landing" page
 
   Scenario: User visits landing page and searches for dishes nearby

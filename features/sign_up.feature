@@ -4,7 +4,7 @@ Feature: Sign Up
   I need to be able to get system access by creating an account
 
   Background:
-    Given that there is a session with data lng and lat
+    Given that there is a session with lat and lng near "Chalmers"
 
   Scenario: Successfully Signed Up
     When I am on the "landing" page
