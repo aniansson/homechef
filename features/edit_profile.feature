@@ -8,7 +8,8 @@ Feature: As a User
 
     Scenario: I edit my profile
       When I am on the "Edit profile" page
-      Then I fill in "Email" with "email@random.com"
+      Then I fill in "Username" with "username"
+      And I fill in "Email" with "email@random.com"
       And I fill in "Password" with "password"
       And I fill in "First name" with "Valentine"
       And I fill in "Last name" with "Karlsson"
@@ -16,6 +17,7 @@ Feature: As a User
       And I fill in "Zip code" with "311 74"
       And I fill in "City" with "Falkenberg"
       And I fill in "Phone" with "0770223344"
+      And I fill in "About Me" with "I love to cook food and eat it!"
       And I fill in "Password confirmation" with "password"
       And I fill in "Current password" with "password"
       When I click "Update" button
