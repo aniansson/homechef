@@ -17,7 +17,7 @@ Feature: As a User
       And I fill in "Zip code" with "311 74"
       And I fill in "City" with "Falkenberg"
       And I fill in "Phone" with "0770223344"
-      And I fill in "About Me" with "I love to cook food and eat it!"
+      And I fill in "About me" with "I love to cook food and eat it!"
       And I fill in "Password confirmation" with "password"
       And I fill in "Current password" with "password"
       When I click "Update" button

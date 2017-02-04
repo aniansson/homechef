@@ -12,6 +12,7 @@ RSpec.describe User, type: :model do
       it { is_expected.to have_db_column :zip_code }
       it { is_expected.to have_db_column :city }
       it { is_expected.to have_db_column :phone }
+      it { is_expected.to have_db_column :about_me }
     end
 
     describe "Factory" do
