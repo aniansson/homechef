@@ -5,7 +5,7 @@ When(/^I click the "([^"]*)" button for "([^"]*)"$/) do |button, dish|
   end
 end
 
-When(/^I click the plus button for "([^"]*)"$/) do |dish|
+When(/^I click the(?: | plus )button for "([^"]*)"$/) do |dish|
   scope = Dish.find_by(name: dish)
   find("button#dish-#{scope.id}").trigger('click')
 end
