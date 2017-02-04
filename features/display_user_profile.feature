@@ -3,8 +3,10 @@ Feature: As a User
   I need to be able to display a profile page
 
   Background:
-    Given that there is a user logged in with an email of "email@random.com"
-    # And the following dishes are created by "email@.random.com"
+    Given that the following users exist
+      | first_name  | last_name                                               | email | address |
+      | Philip      | Zudemberg | email@random.com    | Address 14     |
+    # And the following dishes are created by "email@random.com"
     #   | name      | description                                               | price | ready_time | portions |    lat        |     lng       |
     #   | meatballs | homecooked with love, including mashed potatoes and sauce | 4     | 18:00      | 10       | 35.5332005    |  -79.179632   |
     #   | taco      | really spicy authentic mexican tacos                      | 5     | 16:00      | 10       | 35.5332005    |  -79.179632   |
