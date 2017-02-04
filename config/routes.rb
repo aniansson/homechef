@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  devise_for :users, controllers: {registrations: 'registrations'}
+  devise_for :users, controllers: { registrations: 'registrations' }
   root controller: :landing, action: :index
   resources :dishes, only: [:index, :show]
   resources :checkout, only: [:index]
@@ -7,4 +7,5 @@ Rails.application.routes.draw do
   post :add_to_order, controller: :orders, action: :add_to_order
   post :remove_from_order, controller: :checkout, action: :delete
   post :search_by_address, controller: :landing, action: :address_search
+  get :users, 
 end

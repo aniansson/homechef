@@ -1,5 +1,4 @@
 class RegistrationsController < Devise::RegistrationsController
-
   private
 
   def account_update_params

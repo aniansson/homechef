@@ -24,3 +24,24 @@ Given(/^that there is a session with lat and lng near "([^"]*)"$/) do |place|
       page.set_rack_session(geo_location: {"lat" => 35.5332005, "lng" => -79.179632})
   end
 end
+
+When(/^I (?:am on|go to) the "([^"]*)" page$/) do |page|
+  case page
+    when 'landing'
+      visit root_path
+
+    when 'Meatballs'
+      id = Dish.find_by(name: 'meatballs').id
+      visit "/dishes/#{id}"
+
+    when 'Checkout'
+      visit checkout_index_path
+
+    when 'Edit profile'
+      visit edit_user_registration_path
+
+    when 'Profile'
+      id = User.find_by(email: 'email@random.com').id
+      visit "/users/#{id}"
+  end
+end
