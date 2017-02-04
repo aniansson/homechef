@@ -12,7 +12,7 @@ Feature: Login
     And I click "Login"
     Then I fill in "Email" with "kristoffer.user@homechef.com"
     And I fill in "Password" with "password"
-    And I click "Log in" button
+    And I click "Sign in" button
     Then I should be on the "Landing" page
     And I should see "Signed in successfully."
 

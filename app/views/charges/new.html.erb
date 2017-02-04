@@ -5,9 +5,6 @@
             <p><%= flash[:error] %></p>
           </div>
       <% end %>
-      <label class="amount">
-        <span>Total: $<%= "%.2f" % @total_amount %></span>
-      </label>
     </article>
     <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
             data-key="<%= Rails.configuration.stripe[:publishable_key] %>"

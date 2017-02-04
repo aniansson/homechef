@@ -1,8 +1,43 @@
-<h2>Thanks, you paid <strong>$<%= "%.2f" % @total_amount %></strong>!<br>
-  Your order:<br>
-
-  <% @items.each do |item| %>
-      <%= item.quantity %> <%= item.item.name.humanize %> will be ready for pick-up
-      at <%= item.item.ready_time.strftime('%H:%M') %><br>
-  <% end %>
-</h2>
+<h2 style="text-align: center;">Thank you for your order <3 </h2>
+<div class="row">
+  <div class="col-md-12">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h3 class="panel-title"><strong>Order summary</strong></h3>
+      </div>
+      <div class="panel-body">
+        <div class="table-responsive">
+          <table class="table table-condensed">
+            <thead>
+            <tr>
+              <td><strong>Item</strong></td>
+              <td class="text-center"><strong>Price</strong></td>
+              <td class="text-center"><strong>Quantity</strong></td>
+              <td class="text-right"><strong>Totals</strong></td>
+              <td class="text-right"><strong>Pickuptime</strong></td>
+            </tr>
+            </thead>
+            <tbody>
+            <% @items.each do |item| %>
+                <tr>
+                  <td><%= item.item.name.humanize %></td>
+                  <td class="text-center">$<%= item.item.price %></td>
+                  <td class="text-center"><%= item.quantity %></td>
+                  <td class="text-right">$<%= item.quantity * item.item.price %></td>
+                  <td class="text-right"><%= item.item.ready_time.strftime('%H:%M') %></td>
+                </tr>
+            <% end %>
+            <tr>
+              <td class="no-line"></td>
+              <td class="no-line"></td>
+              <td class="no-line"></td>
+              <td class="no-line text-center"><strong>Total</strong></td>
+              <td class="no-line text-right">$<%= "%.2f" % @total_amount %></td>
+            </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

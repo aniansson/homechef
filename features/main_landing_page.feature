@@ -9,7 +9,5 @@ Feature: Main landing page
   Scenario: Visitor visits main page
     When I am on the "landing" page
     Then I should see "Welcome to HomeChef"
-    And I should see a "general_random_dishes" placeholder
-    And I should see a "logotype" placeholder
     When I click the "Home" link
     Then I should be on the "landing" page

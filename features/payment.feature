@@ -19,32 +19,38 @@ Feature: As a Buying User,
 
 
   Scenario: Buying User pays for the dishes in her order
-    When I click the "Add dish" button for "taco"
-    And I click the "Add dish" button for "meatballs"
+    When I click the plus button for "taco"
+    And I click the "Add dish to order" button
+    And I click the plus button for "meatballs"
+    And I click the "Add dish to order" button
     And there should be "2" items on the last order
     And I go to the "Checkout" page
     And I click the stripe button
     And I fill in my card details on the stripe form
     And I submit the stripe form
-    Then I should see "Thanks, you paid $20.00!" on the order confirmation page
+    Then I should see "Thank you for your order <3" on the order confirmation page
 
   Scenario: User pays for the dishes and then tries to visit checkout screen
-    When I click the "Add dish" button for "taco"
-    And I click the "Add dish" button for "meatballs"
+    When I click the plus button for "taco"
+    And I click the "Add dish to order" button
+    And I click the plus button for "meatballs"
+    And I click the "Add dish to order" button
     And there should be "2" items on the last order
     And I go to the "Checkout" page
     And I click the stripe button
     And I fill in my card details on the stripe form
     And I submit the stripe form
-    Then I should see "Thanks, you paid $20.00!" on the order confirmation page
+    Then I should see "Thank you for your order <3" on the order confirmation page
     When I go to the "landing" page
     And I click "Checkout" button
     Then I should see "You have no items in your order"
 
   Scenario: Redirects to checkout page on error
     And I am on the "landing" page
-    And I click the "Add dish" button for "taco"
-    And I click the "Add dish" button for "meatballs"
+    When I click the plus button for "taco"
+    And I click the "Add dish to order" button
+    And I click the plus button for "meatballs"
+    And I click the "Add dish to order" button
     And there should be "2" items on the last order
     And I go to the "Checkout" page
     And I click the stripe button

@@ -1,0 +1,53 @@
+<footer class="footer-distributed">
+
+  <div class="footer-left">
+
+    <h3>Home<span>Chefs</span></h3>
+
+    <p class="footer-links">
+      <% if user_signed_in? %>
+          <%= link_to "Logout", destroy_user_session_path, method: :delete %>
+      <% end %>
+    </p>
+
+    <p class="footer-company-name">Homechefs &copy; 2017</p>
+  </div>
+
+  <div class="footer-center">
+
+    <div>
+      <i class="fa fa-map-marker"></i>
+      <p><span>Holtermansgatan 1</span> Gothenburg, Sweden</p>
+    </div>
+
+    <div>
+      <i class="fa fa-phone"></i>
+      <p>+46 76 398 80 88</p>
+    </div>
+
+    <div>
+      <i class="fa fa-envelope"></i>
+      <p><a href="mailto:support@homechefs.com">support@homechefs.com</a></p>
+    </div>
+
+  </div>
+
+  <div class="footer-right">
+
+    <p class="footer-company-about">
+      <span>About the company</span>
+      We want everyone to be able to eat local homecooked food without spending too much money!
+    </p>
+
+    <div class="footer-icons">
+
+      <a href="#"><i class="fa fa-facebook"></i></a>
+      <a href="#"><i class="fa fa-twitter"></i></a>
+      <a href="#"><i class="fa fa-linkedin"></i></a>
+      <a href="#"><i class="fa fa-github"></i></a>
+
+    </div>
+
+  </div>
+
+</footer>

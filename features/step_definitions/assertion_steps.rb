@@ -10,10 +10,6 @@ Then(/^I should see input of type "([^"]*)" with name "([^"]*)"$/) do |type, nam
   expect(page).to have_css('input[type=' "#{type}" '][name*=' "#{name}" ']')
 end
 
-Then(/^I should see a "([^"]*)" placeholder$/) do |id|
-  expect(page).to have_selector(:css, "div##{id}")
-end
-
 Then(/^I should be on the "landing page$/) do
   expect(page.current_path).to eq root_path
 end

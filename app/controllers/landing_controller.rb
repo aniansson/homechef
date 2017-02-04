@@ -12,6 +12,6 @@ class LandingController < ApplicationController
     session[:geo_location]['lng'] = location.lng
     session[:geo_location]['lat'] = location.lat
     @dishes = Dish.within(10, origin: location)
-    render 'landing/index'
+    redirect_back(fallback_location: root_path)
   end
 end
