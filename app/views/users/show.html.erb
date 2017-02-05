@@ -8,21 +8,15 @@
       <a href="/users" class="pull-right"><img title="profile image" class="img-circle img-responsive" src="http://www.rlsandbox.com/img/profile.jpg"></a>
     </div>
   </div>
-  <br>
   <h3 class="">@<%= @user.username %></h3>
   <div class="row">
     <div class="col-sm-3">
       <!--left col-->
-        <li class="list-group-item text-right">
-                    <span class="pull-left">
-                        <strong class="">Email</strong>
-                    </span>
-          <%= @user.email %></li>
-        <li class="list-group-item text-right">
-                    <span class="pull-left">
-                        <strong class="">Address</strong>
-                    </span>
-          <%= @user.address %></li>
+      <ul class="list-group">
+        <li class="list-group-item text-muted" contenteditable="false">Profile</li>
+        <li class="list-group-item text-right"><span class="pull-left"><strong class="">Email</strong></span> <%= @user.email %></li>
+        <li class="list-group-item text-right"><span class="pull-left"><strong class="">Address</strong></span> <%= @user.address %></li>
+      </ul>
       <div class="panel panel-default">
         <div class="panel-heading">Social Media</div>
         <div class="panel-body">
