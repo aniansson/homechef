@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
     def show
         @user = User.find(params[:id])
-        @dishes = Dish.all
+        @dishes = @user.dishes.all
     end
 end
