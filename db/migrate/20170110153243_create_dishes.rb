@@ -3,7 +3,7 @@ class CreateDishes < ActiveRecord::Migration[5.0]
     create_table :dishes do |t|
       t.string :name
       t.text :description
-      t.integer :price
+      t.float :price
       t.datetime :readytime
       t.integer :portions
 

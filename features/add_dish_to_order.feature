@@ -39,8 +39,8 @@ Feature: Add dish to order
     And I submit the stripe form
     And I should see "Thank you for your order <3" on the order confirmation page
     And I go to the "landing" page
+    And I click the plus button for "meatballs"
+    And I should see "9 portions left"
     And I click the plus button for "taco"
     Then I should see "9 portions left"
     And I click the "Close" button
-    And I click the plus button for "meatballs"
-    And I should see "9 portions left"

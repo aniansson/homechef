@@ -2,6 +2,78 @@
 <label>Search by address:</label>
 <%= form_tag(search_by_address_path) do %>
     <%= text_field_tag 'address' %>
-    <%= submit_tag 'Search', class: 'btn btn-danger' %>
+    <%= submit_tag 'Search', class: 'btn btn-primary' %>
 <% end %>
-<%= render partial: '/dishes/index' %>
+<ul>
+  <div class="row">
+    <% @dishes.each do |dish| %>
+        <div class="col-lg-1">
+          <li class="dish-map-display-li" id="dish_<%= dish.id %>">
+            <div class="col-lg-5 col-lg-offset-2 dish-map-pin">
+              <%= dish.name.humanize %><br/>
+              <button type="button" id="dish-<%= dish.id %>" class="btn btn-default"
+                      data-toggle="modal" data-target="#dish<%= dish.id %>Modal">
+                <span class="glyphicon-plus"></span></button>
+            </div>
+            <div class="row">
+              <div class="col-lg-2 col-lg-offset-5">
+                <div id="dish<%= dish.id %>Modal" class="modal fade" role="dialog">
+                  <div class="modal-dialog modal-lg">
+                    <div class="modal-content">
+                      <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        <h4 class="modal-title"><%= dish.name.humanize %><br/></h4>
+                      </div>
+                      <div class="modal-body">
+                        <div class="container">
+                          <div class="card">
+                            <div class="container-fliud">
+                              <div class="wrapper row">
+                                <div class="preview col-md-6">
+                                  <div class="preview-pic tab-content">
+                                    <div class="tab-pane active" id="pic-1"><img src="http://placekitten.com/400/252"/>
+                                    </div>
+                                  </div>
+                                </div>
+                                <div class="details col-md-6">
+                                  <h3 class="product-title"><%= dish.name.humanize %></h3>
+                                  <div class="rating">
+                                    <div class="stars">
+                                      <span class="fa fa-star checked"></span>
+                                      <span class="fa fa-star checked"></span>
+                                      <span class="fa fa-star checked"></span>
+                                      <span class="fa fa-star"></span>
+                                      <span class="fa fa-star"></span>
+                                    </div>
+                                    <span class="review-no">41 reviews</span>
+                                  </div>
+                                  <p class="product-description"><%= dish.description.humanize %><br/></p>
+                                  <h5 class="pickuptime">Ready for pick-up
+                                    at <%= dish.ready_time.strftime('%H:%M') %></span></h5>
+                                  <h4 class="price">Price: <span>$<%= dish.price %></span></h4>
+                                  <h4 class="price"><span><%= dish.portions %></span> portions left</h4>
+                                  <%= form_tag add_to_order_path, id: "dish-#{dish.id}" do %>
+                                      <%= hidden_field_tag :dish_id, dish.id %>
+                                      <%= submit_tag "Add dish to order", class: "btn btn-primary" %>
+                                  <% end %>
+                                  <button class="like btn btn-default" type="button"><span class="fa fa-heart"></span>
+                                  </button>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </li>
+        </div>
+    <% end %>
+  </div>
+</ul>

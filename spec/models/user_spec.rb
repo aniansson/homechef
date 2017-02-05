@@ -23,5 +23,6 @@ RSpec.describe User, type: :model do
 
   describe 'Associations' do
     it { is_expected.to have_many :orders }
+    it { is_expected.to have_many :dishes }
   end
 end

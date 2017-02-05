@@ -1,0 +1,17 @@
+<div id="create_dish" class="form-group">
+  <%= form_tag user_dishes_path do %>
+      <%= label_tag(:name, "Dish name") %> <br/>
+      <%= text_field_tag(:name, "Name", class: "form-control") %><br/>
+      <%= label_tag(:description, "Dish description") %><br/>
+      <%= text_area_tag(:description, "Description", class: "form-control", rows: "7") %><br/>
+      <%= label_tag(:price, "Price") %><br/>
+      <%= text_field_tag(:price, "$", class: "form-control") %><br/>
+      <%= label_tag('dish[portions]', "Nr of portions available") %><br/>
+      <%= number_field(:dish, :portions, class: "form-control") %><br/>
+      <%= label_tag('dish[ready_time]', "Earliest pickup time") %><br/>
+      <%= datetime_field(:dish, :ready_time, class: "form-control") %><br/>
+      <%= label_tag(:address, "Pickup address") %><br/>
+      <%= text_field_tag(:address, "Address", class: "form-control") %><br/>
+      <%= submit_tag "Create dish", class: "btn btn-primary btn-m pull-right" %>
+  <% end %>
+</div>

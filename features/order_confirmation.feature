@@ -8,8 +8,8 @@ Feature:
   Background:
     Given the following dishes exists
       | name      | description                                               | price | ready_time | portions | lat        | lng        |
-      | meatballs | homecooked with love, including mashed potatoes and sauce | 10    | 18:00      | 10       | 35.5332005 | -79.179632 |
-      | taco      | really spicy authentic mexican tacos                      | 10    | 16:00      | 10       | 35.5332005 | -79.179632 |
+      | meatballs | homecooked with love, including mashed potatoes and sauce | 10.99    | 18:00      | 10       | 35.5332005 | -79.179632 |
+      | taco      | really spicy authentic mexican tacos                      | 12.79    | 16:00      | 10       | 35.5332005 | -79.179632 |
     And that there is a session with lat and lng near "somewhere in America"
     And that there is a user logged in with an email of "email@random.com"
     And I am on the "landing" page
@@ -24,7 +24,7 @@ Feature:
     And I submit the stripe form
     Then I should see "Thank you for your order <3" on the order confirmation page
     And I should see "Taco"
-    And I should see "$10"
+    And I should see "$12.79"
     And I should see " 16:00"
 
   Scenario: User purchases two dishes with different pick_up time and is being shown pick_up time for both dishes
@@ -41,8 +41,8 @@ Feature:
     And I submit the stripe form
     Then I should see "Thank you for your order <3" on the order confirmation page
     And I should see "Taco"
-    And I should see "$10"
+    And I should see "$12.79"
     And I should see " 16:00"
     And I should see "Meatballs"
-    And I should see "$10 2 $20"
-    And I should see "Total $30.00"
+    And I should see "$10.99 2 $21.98"
+    And I should see "Total $34.77"

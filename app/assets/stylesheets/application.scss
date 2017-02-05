@@ -16,3 +16,35 @@
  */
 @import "bootstrap-sprockets";
 @import "bootstrap";
+
+.dish-map-display-li {
+  list-style-type: none;
+}
+
+.dish-map-pin {
+  text-align: left; font-size: large; margin-top:20px;
+}
+
+div.dish-map-pin > button.btn-default {
+  width: 25px;
+  height: 25px;
+  text-align: center;
+  line-height: 50%;
+  padding-left: 5px;
+  border-radius: 50%;
+  background: transparent;
+}
+
+.glyphicon-plus {
+  font-size: 25px;
+}
+
+#create_dish {
+  width:20vmax;
+}
+
+.btn-primary {
+  color: #fff;
+  background-color: #5cb85c;
+  border-color: #4cae4c;
+}

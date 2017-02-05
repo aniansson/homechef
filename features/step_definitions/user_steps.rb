@@ -1,5 +1,6 @@
 Given(/^that the following users exist$/) do |table|
   table.hashes.each do |hash|
-    FactoryGirl.create(:user, hash)
+    @user = FactoryGirl.create(:user, hash)
   end
+  login_as(@user, scope: :user)
 end

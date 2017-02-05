@@ -18,13 +18,15 @@ ActiveRecord::Schema.define(version: 20170204181413) do
   create_table "dishes", force: :cascade do |t|
     t.string   "name"
     t.text     "description"
-    t.integer  "price"
+    t.float    "price"
     t.datetime "ready_time"
     t.integer  "portions"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
     t.float    "lng"
     t.float    "lat"
+    t.integer  "user_id"
+    t.index ["user_id"], name: "index_dishes_on_user_id", using: :btree
   end
 
   create_table "order_items", force: :cascade do |t|
@@ -72,5 +74,6 @@ ActiveRecord::Schema.define(version: 20170204181413) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
   end
 
+  add_foreign_key "dishes", "users"
   add_foreign_key "orders", "users"
 end
