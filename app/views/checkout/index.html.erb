@@ -20,8 +20,9 @@
                     <img class="media-object" src="http://icons.iconarchive.com/icons/custom-icon-design/flatastic-2/72/product-icon.png" style="width: 72px; height: 72px;">
                   </a>
                   <div class="media-body">
-                    <h4 class="media-heading"><a href="#"><%= order_item.item.name.humanize %></a></h4>
-                    <h5 class="media-heading"> by <%= link_to "#{order_item.item.user.username}", user_path(order_item.item.user.id) %></a></h5>
+                    <h4 class="media-heading"><%= link_to "#{order_item.item.name.humanize}", "#", data: {toggle: "modal", target: "#dish#{order_item.item.id}Modal"} %></h4>
+                    <h5 class="media-heading">
+                      by <%= link_to "#{order_item.item.user.username}", user_path(order_item.item.user.id) %></h5>
                   </div>
                 </div>
               </td>
@@ -62,6 +63,68 @@
     </div>
   </div>
 </div>
+<% @order_items.each do |order_item| %>
+    <div id="dish<%= order_item.item.id %>Modal" class="modal fade" role="dialog">
+      <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal">&times;</button>
+            <h4 class="modal-title"><%= order_item.item.name.humanize %><br/></h4>
+          </div>
+          <div class="modal-body">
+            <div class="container">
+              <div class="card">
+                <div class="container-fliud">
+                  <div class="wrapper row">
+                    <div class="preview col-md-6">
+                      <div class="preview-pic tab-content">
+                        <div class="tab-pane active" id="pic-1">
+                          <img src="http://lorempixel.com/400/252/food"/>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="details col-md-6">
+                      <h3 class="product-title"><%= order_item.item.name.humanize %></h3>
+                      <div class="rating">
+                        <div class="stars">
+                          <span class="fa fa-star checked"></span>
+                          <span class="fa fa-star checked"></span>
+                          <span class="fa fa-star checked"></span>
+                          <span class="fa fa-star"></span>
+                          <span class="fa fa-star"></span>
+                        </div>
+                        <span class="review-no">41 reviews</span>
+                      </div>
+                      <p class="product-description"><%= order_item.item.description.humanize %><br/></p>
+                      <h5 class="pickuptime">Ready for pick-up at
+                        <span><%= order_item.item.ready_time.strftime('%H:%M') %></span>
+                      </h5>
+                      <h4 class="price">Price:
+                        <span>$<%= order_item.item.price %></span>
+                      </h4>
+                      <h4 class="price">
+                        <span><%= order_item.item.portions %></span>
+                        portions left</h4>
+                      <%= form_tag add_to_order_path, id: "dish-#{order_item.item.id}" do %>
+                          <%= hidden_field_tag :dish_id, order_item.item.id %>
+                          <%= submit_tag "Add dish to order", class: "btn btn-default" %>
+                      <% end %>
+                      <button class="like btn btn-default" type="button">
+                        <span class="fa fa-heart"></span>
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          </div>
+        </div>
+      </div>
+    </div>
+<% end %>
 
 
 
