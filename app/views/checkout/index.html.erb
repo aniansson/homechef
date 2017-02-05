@@ -21,7 +21,7 @@
                   </a>
                   <div class="media-body">
                     <h4 class="media-heading"><a href="#"><%= order_item.item.name.humanize %></a></h4>
-                    <h5 class="media-heading"> by <a href="#">username</a></h5>
+                    <h5 class="media-heading"> by <%= link_to "#{order_item.item.user.username}", user_path(order_item.item.user.id) %></a></h5>
                   </div>
                 </div>
               </td>
