@@ -10,6 +10,7 @@ class RegistrationsController < Devise::RegistrationsController
                                   :city,
                                   :phone,
                                   :email,
+                                  :about_me,
                                   :password,
                                   :password_confirmation,
                                   :current_password)
