@@ -20,8 +20,8 @@ Feature: As a User
     And I fill in "Earliest pickup time" with "2017-02-17 18:00"
     And I fill in "Pickup address" with "Storgatan 1, Stockholm"
     And I click "Create dish"
-    Then I should see "Successfully added 5 portions of Meatballs at $59.99 each to your dishes"
-    When I am on the "Profile" page
+    And I should see "Successfully added 5 portions of Meatballs at $59.99 each to your dishes"
+    And I click "My profile"
     Then I should see "email@random.com"
     And I should see "Philip Zudemberg"
     And I should see "Address 14"
