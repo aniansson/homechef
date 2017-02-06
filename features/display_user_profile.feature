@@ -6,8 +6,8 @@ Feature: As a User
 
   Background:
     Given that the following users exist
-      | first_name  | last_name | email               | address        |
-      | Philip      | Zudemberg | email@random.com    | Address 14     |
+      | first_name  | last_name | email               | address        | username |
+      | Philip      | Zudemberg | email@random.com    | Address 14     | Philippo |
     And that there is a session with lat and lng near "Chalmers"
 
   Scenario: Display of user profile

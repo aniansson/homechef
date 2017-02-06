@@ -9,12 +9,14 @@ Feature: As a Buying User,
   I need to see payment confirmation through a payment solution
 
   Background:
+    Given that the following users exist
+      | first_name  | last_name | email               | address        | username |
+      | Philip      | Zudemberg | email@random.com    | Address 14     | Philippo |
     Given the following dishes exists
       | name      | description                                               | price | ready_time | portions |    lat        |     lng       |
       | meatballs | homecooked with love, including mashed potatoes and sauce | 10    | 18:00      | 10       | 35.5332005    |  -79.179632   |
       | taco      | really spicy authentic mexican tacos                      | 10    | 16:00      | 10       | 35.5332005    |  -79.179632   |
     And that there is a session with lat and lng near "somewhere in America"
-    And that there is a user logged in with an email of "email@random.com"
     And I am on the "landing" page
 
 

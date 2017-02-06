@@ -3,6 +3,9 @@ Feature: As a visitor,
   I need to be able to see a selection of dishes
 
   Background:
+    Given that the following users exist
+      | first_name  | last_name | email               | address        | username |
+      | Philip      | Zudemberg | email@random.com    | Address 14     | Philippo |
     Given the following dishes exists
       | name      | description                                               | price | ready_time | portions |    lat        |     lng       |
       | meatballs | homecooked with love, including mashed potatoes and sauce | 4    | 18:00      | 10       | 35.5332005    |  -79.179632   |

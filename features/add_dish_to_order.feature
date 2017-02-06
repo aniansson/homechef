@@ -6,12 +6,14 @@ Feature: Add dish to order
   I need to be able to first add the dish to my order list
 
   Background:
-    Given the following dishes exists
+    Given that the following users exist
+      | first_name  | last_name | email               | address        | username |
+      | Philip      | Zudemberg | email@random.com    | Address 14     | Philippo |
+    And the following dishes exists
       | name      | description                                               | price | ready_time | portions |    lat        |     lng       |
       | meatballs | homecooked with love, including mashed potatoes and sauce |   4   | 18:00      | 10       | 35.5332005    |  -79.179632   |
       | taco      | really spicy authentic mexican tacos                      |   5   | 16:00      | 10       | 35.5332005    |  -79.179632   |
     And that there is a session with lat and lng near "somewhere in America"
-    And that there is a user logged in with an email of "emaiol@random.com"
     And I am on the "landing" page
 
   Scenario: Successfully add dish to order
