@@ -7,7 +7,7 @@ Feature:
 
   Background:
     Given the following dishes exists
-      | name      | description                                               | price | ready_time | portions | lat        | lng        |
+      | name      | description                                               | price    | ready_time | portions | lat        | lng        |
       | meatballs | homecooked with love, including mashed potatoes and sauce | 10.99    | 18:00      | 10       | 35.5332005 | -79.179632 |
       | taco      | really spicy authentic mexican tacos                      | 12.79    | 16:00      | 10       | 35.5332005 | -79.179632 |
     And that there is a session with lat and lng near "somewhere in America"
