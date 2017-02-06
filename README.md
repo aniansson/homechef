@@ -49,6 +49,8 @@ For deployment, change the information in the `.travis.yml` file. For API-key;
 $ travis encrypt $(heroku auth:token) —add deploy.api_key
 ```
 
+### Deployed at [https://homechefs.herokuapp.com/](https://homechefs.herokuapp.com/)
+
 ## Built With
 
   * [Travis](https://travis-ci.org) - Used for continous integration
