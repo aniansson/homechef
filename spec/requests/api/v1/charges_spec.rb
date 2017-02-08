@@ -18,9 +18,9 @@ RSpec.describe Api::V1::ChargesController, type: :request do
         source: 'hello',
         order_id: @order.id
       }, headers: headers
-      response = { message: 'Thank you for your order <3', order_items:
+      response = { status: 'success', message: 'Thank you for your order <3', order_items:
         [{ name: dish.name, price: dish.price,
-        ready_time: dish.ready_time}] }
+        ready_time: dish.ready_time}], total: @order.total.to_i*100 }
       expect(response_json).to eq response
       expect(response.status).to eq 200
     end
