@@ -16,7 +16,7 @@ RSpec.describe 'User registration', type: :request do
   end
 
   context 'returns an error message when user submits' do
-    it 'non-matching passord confirmation' do
+    it 'non-matching password confirmation' do
       post '/api/v1/auth', params: {
         email: 'user@name.com', password: 'password',
         password_confirmation: 'not_password'
