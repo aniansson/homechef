@@ -22,6 +22,7 @@ RSpec.describe 'Sessions', type: :request do
       }
 
       expect(response_json).to eq expected_response
+      expect(response.status).to eq 200
     end
 
     it 'invalid password returns error message' do
