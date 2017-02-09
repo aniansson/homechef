@@ -2,14 +2,14 @@ class Api::V1::ChargesController < ApiController
   before_action :authenticate_api_v1_user!
 
   def create
-    @order = Order.find(params[:order_id])
+    @order = current_api_v1_user.orders.where(finalized: false).last
     @items = @order.shopping_cart_items
     @total_amount = @order.total
     @amount = @total_amount.to_i*100
 
     customer = Stripe::Customer.create(
         email: params[:stripeEmail],
-        source: params[:source]
+        source: generate_test_token
     )
 
     charge = Stripe::Charge.create(
