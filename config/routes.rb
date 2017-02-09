@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
 
   devise_for :users, path: 'users', controllers: {
-    registrations: 'registrations'
+      registrations: 'registrations'
   }
 
   resources :users do
@@ -17,11 +17,12 @@ Rails.application.routes.draw do
   resources :users, only: [:show]
 
   namespace :api do
-    namespace :v1, defaults: { format: :json } do
+    namespace :v1, defaults: {format: :json} do
       resources :dishes, only: [:index]
       resources :charges, only: [:create]
-      mount_devise_token_auth_for 'User', at: 'auth',
-                                          skip: [:omniauth_callbacks]
+      mount_devise_token_auth_for 'User', at: 'auth', controllers: {
+          registrations: 'api/v1/registrations'
+      }, skip: [:omniauth_callbacks]
     end
   end
 end
