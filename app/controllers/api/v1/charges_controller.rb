@@ -1,4 +1,5 @@
 class Api::V1::ChargesController < ApiController
+  before_action :authenticate_api_v1_user!
 
   def create
     @order = Order.find(params[:order_id])
@@ -8,7 +9,7 @@ class Api::V1::ChargesController < ApiController
 
     customer = Stripe::Customer.create(
         email: params[:stripeEmail],
-        source: source(params)
+        source: params[:source]
     )
 
     charge = Stripe::Charge.create(
@@ -25,12 +26,8 @@ class Api::V1::ChargesController < ApiController
       render 'show'
     end
 
-  # rescue Stripe::CardError => e
-  #   flash[:error] = e.message
-  #
-  #
-  # end
-
+  rescue Stripe::CardError => e
+    render json: {error: e.message}
   end
 
   private
