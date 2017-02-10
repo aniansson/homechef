@@ -19,6 +19,7 @@ Rails.application.routes.draw do
   namespace :api do
     namespace :v1, defaults: {format: :json} do
       resources :dishes, only: [:index]
+      resources :orders, only: [:create]
       resources :charges, only: [:create]
       mount_devise_token_auth_for 'User', at: 'auth', controllers: {
           registrations: 'api/v1/registrations'
