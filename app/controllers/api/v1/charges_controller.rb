@@ -9,7 +9,7 @@ class Api::V1::ChargesController < ApiController
 
     customer = Stripe::Customer.create(
         email: params[:stripeEmail],
-        source: generate_test_token
+        source: params[:source]
     )
 
     charge = Stripe::Charge.create(
@@ -27,7 +27,7 @@ class Api::V1::ChargesController < ApiController
     end
 
   rescue Stripe::CardError => e
-    render json: {error: e.message}
+    render json: {error: e.message}, status: :error
   end
 
   private

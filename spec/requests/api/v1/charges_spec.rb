@@ -15,6 +15,7 @@ RSpec.describe Api::V1::ChargesController, type: :request do
     it 'should charge users card' do
       post '/api/v1/charges', params: {
           email: user.email,
+          source: StripeMock.create_test_helper.generate_card_token,
           order_id: @order.id
       }, headers: headers
 
@@ -29,11 +30,23 @@ RSpec.describe Api::V1::ChargesController, type: :request do
     it 'should return error if invalid user' do
       post '/api/v1/charges', params: {
           email: user.email,
+          source: StripeMock.create_test_helper.generate_card_token,
           order_id: @order.id
       }, headers: nil
 
       expect(response_json['errors']).to eq ["Authorized users only."]
       expect(response.status).to eq 401
+    end
+
+    it 'should return error if card is declined' do
+      post '/api/v1/charges', params: {
+          email: user.email,
+          source: nil,
+          order_id: @order.id
+      }, headers: headers
+
+      expect(response_json['error']).to eq "Cannot charge a customer that has no active card"
+      expect(response.status).to eq 500
     end
   end
 end
